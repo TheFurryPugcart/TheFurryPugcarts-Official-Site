@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta property="og:title" content="Random Image" />
+    <meta property="og:description" content="Displays a random image each time the page is loaded." />
+    <meta property="og:image" content="https://yourdomain.com/path-to-default-image.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/random-image.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yourTwitterHandle" />
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Array of image URLs
+        const images = [
+            'image1.png',
+            'image2.png',
+            'image3.png'
+        ];
+
+        // Function to select a random image
+        const getRandomImage = () => {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return images[randomIndex];
+        };
+
+        // Create and display the random image
+        const imgElement = document.createElement('img');
+        imgElement.src = getRandomImage();
+        document.body.appendChild(imgElement);
+    </script>
+</body>
+</html>
