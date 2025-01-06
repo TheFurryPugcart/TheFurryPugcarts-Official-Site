@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Image Embed</title>
+    
+    <!-- Simulating oEmbed JSON-like metadata -->
+    <meta property="og:type" content="image">
+    <meta property="og:title" content="Random Image">
+    <meta property="og:image" content="https://qwerkle.github.io/test/images/image1.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:type" content="image/jpeg">
 </head>
 <body>
     <h1>Random Image</h1>
@@ -11,44 +19,25 @@
         <img id="randomImage" src="" alt="Random Image" style="max-width: 100%; height: auto;">
     </div>
 
-    <!-- oEmbed JSON Simulation -->
     <script>
-        // Array of image paths
         const imagePaths = [
             'images/image1.png',
             'images/image2.png',
             'images/image3.png'
         ];
 
-        // Function to select a random image
         function getRandomImage() {
             const randomIndex = Math.floor(Math.random() * imagePaths.length);
             return imagePaths[randomIndex];
         }
 
-        // Function to simulate the oEmbed response
-        function getOEmbedResponse() {
-            const imageUrl = getRandomImage();
-
-            return {
-                version: "1.0",
-                type: "photo",
-                width: 600,
-                height: 400,
-                url: imageUrl,
-                title: "Random Image"
-            };
+        function updateRandomImage() {
+            const randomImageUrl = getRandomImage();
+            document.getElementById('randomImage').src = randomImageUrl;
         }
 
-        // Simulating Gumroad interaction with oEmbed
-        function simulateEmbed() {
-            const oEmbedData = getOEmbedResponse();
-            console.log("oEmbed Data:", oEmbedData); // This is for demonstration
-            document.getElementById('randomImage').src = oEmbedData.url;
-        }
-
-        // Initialize the image and oEmbed data on page load
-        window.onload = simulateEmbed;
+        // Set a random image on page load
+        window.onload = updateRandomImage;
     </script>
 </body>
 </html>
