@@ -1,53 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <link rel="iframely" type="application/json+oembed" 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Image Selector</title>
+  <!-- oEmbed Metadata -->
+  <link rel="alternate" type="application/json+oembed" 
         href="https://qwerkle.github.io/test/oembed.json" 
         title="Random Image Selector" />
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Image</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
 <body>
-    <script>
-        // Array of image URLs
-        const images = [
-            'image1.png',
-            'image2.png',
-            'image3.png'
-        ];
+  <script>
+    // List of image URLs
+    const images = [
+      'image1.png',
+      'image2.png',
+      'image3.png'
+    ];
 
-        // Function to select a random image
-        const getRandomImage = () => {
-            const randomIndex = Math.floor(Math.random() * images.length);
-            return images[randomIndex];
-        };
+    // Select a random image from the array
+    const randomImage = images[Math.floor(Math.random() * images.length)];
 
-        // Create and display the random image
-        const imgElement = document.createElement('img');
-        imgElement.src = getRandomImage();
-        document.body.appendChild(imgElement);
-    </script>
+    // Create and display the image element
+    const img = document.createElement('img');
+    img.src = randomImage;
+    img.alt = "Random Image";
+    document.body.appendChild(img);
+  </script>
 </body>
 </html>
