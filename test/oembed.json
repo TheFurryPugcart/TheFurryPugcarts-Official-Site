@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "type": "video",
+    "type": "rich",
     "title": "Random Image Selector",
     "html": "<iframe src='https://qwerkle.github.io/test/embed.html' width='300' height='300' frameborder='0' style='border:none;'></iframe>",
     "width": 300,
