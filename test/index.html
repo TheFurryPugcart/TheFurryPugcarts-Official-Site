@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
 
-    <meta property="og:title" content="Random Image" />
-    <meta property="og:description" content="Displays a random image each time the page is loaded." />
-    <meta property="og:video" content="https://qwerkle.github.io/test/test" />
-    <meta property="og:video:width" content="640" />
-    <meta property="og:video:height" content="360" />
-    <meta property="og:video:type" content="text/html" />
-
+<link rel="alternate" type="application/json+oembed" 
+      href="https://qwerkle.github.io/test/oembed.json" 
+      title="Random Image Selector" />
 
 
     <meta charset="UTF-8">
@@ -53,10 +49,5 @@
         imgElement.src = getRandomImage();
         document.body.appendChild(imgElement);
     </script>
-
-<link rel="alternate" type="application/json+oembed" 
-      href="https://qwerkle.github.io/test/oembed.json" 
-      title="Random Image Selector" />
-
 </body>
 </html>
