@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Image Selector</title>
-  <style>
-    /* Remove borders and spacing around images */
-    img {
-      display: block;
-      margin: 0;
-      border: none;
-      padding: 0;
-    }
-
-    /* Center the image on the page */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5; /* Optional background color */
-    }
-  </style>
-  <!-- oEmbed Metadata -->
-  <link rel="alternate" type="application/json+oembed" 
-        href="https://qwerkle.github.io/test/oembed.json" 
-        title="Random Image Selector" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image Embed</title>
 </head>
 <body>
-  <script>
-    // List of image URLs
-    const images = [
-      'image1.png',
-      'image2.png',
-      'image3.png'
-    ];
+    <h1>Random Image</h1>
+    <div>
+        <img id="randomImage" src="" alt="Random Image" style="max-width: 100%; height: auto;">
+    </div>
 
-    // Select a random image from the array
-    const randomImage = images[Math.floor(Math.random() * images.length)];
+    <!-- oEmbed JSON Simulation -->
+    <script>
+        // Array of image paths
+        const imagePaths = [
+            'images/image1.jpg',
+            'images/image2.jpg',
+            'images/image3.jpg'
+        ];
 
-    // Create and display the image element
-    const img = document.createElement('img');
-    img.src = randomImage;
-    img.alt = "Random Image";
-    document.body.appendChild(img);
-  </script>
+        // Function to select a random image
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * imagePaths.length);
+            return imagePaths[randomIndex];
+        }
+
+        // Function to simulate the oEmbed response
+        function getOEmbedResponse() {
+            const imageUrl = getRandomImage();
+
+            return {
+                version: "1.0",
+                type: "photo",
+                width: 600,
+                height: 400,
+                url: imageUrl,
+                title: "Random Image"
+            };
+        }
+
+        // Simulating Gumroad interaction with oEmbed
+        function simulateEmbed() {
+            const oEmbedData = getOEmbedResponse();
+            console.log("oEmbed Data:", oEmbedData); // This is for demonstration
+            document.getElementById('randomImage').src = oEmbedData.url;
+        }
+
+        // Initialize the image and oEmbed data on page load
+        window.onload = simulateEmbed;
+    </script>
 </body>
 </html>
